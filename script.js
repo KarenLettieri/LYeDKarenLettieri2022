@@ -1,4 +1,4 @@
-let lugarOcupado= 0
+let lugarOcupado = 0
 let lugarDisponible = 25
 
 let h2dispo = document.getElementById('lugardisponible')
@@ -11,27 +11,47 @@ let patentes = []
 
 
 function ingresarAuto() {
-    
-    if(lugarDisponible > 0) {
-        let patente = document.getElementById('patenteEntrada').value
-        patentes.push(patente)
-        lugarDisponible = lugarDisponible - 1
-        h2dispo.innerHTML = lugarDisponible
-        lugarOcupado = lugarOcupado + 1
-        h2ocupado.innerHTML = lugarOcupado 
-        imprimirPatentes(patentes)
+    let patente = document.getElementById('patenteEntrada').value
+    if (patente != "") {
+        if (lugarDisponible > 0) {
+            patentes.push(patente)
+            lugarDisponible = lugarDisponible - 1
+            h2dispo.innerHTML = lugarDisponible
+            lugarOcupado = lugarOcupado + 1
+            h2ocupado.innerHTML = lugarOcupado
+            imprimirPatentes(patentes)
+        }
     }
+    else {
+        alert("No ingresó la patente")
+    }
+
 }
 
 function salirAuto() {
-    if(lugarOcupado > 0) {
-        let patente = document.getElementById('patenteSalida').value
-        
-        lugarOcupado = lugarOcupado - 1
-        h2ocupado.innerHTML = lugarOcupado 
-        lugarDisponible = lugarDisponible + 1
-        h2dispo.innerHTML = lugarDisponible
+    let patente = document.getElementById('patenteSalida').value
+    if (patente != "") {
+        if (lugarOcupado > 0) {
+            var indice = patentes.indexOf(patente);
+            if (indice != -1) {
+
+                eliminarPatente(patentes, patente)
+                lugarOcupado = lugarOcupado - 1
+                h2ocupado.innerHTML = lugarOcupado
+                lugarDisponible = lugarDisponible + 1
+                h2dispo.innerHTML = lugarDisponible
+                imprimirPatentes(patentes)
+            }
+            else {
+                alert("No existe esa patente ingresada.")
+            }
+
+        }
     }
+    else {
+        alert("No ingresó la patente de salida")
+    }
+
 }
 
 function imprimirPatentes(array) {
@@ -42,6 +62,16 @@ function imprimirPatentes(array) {
         registro.append(h4);
     }
 }
+
+function eliminarPatente(array, buscado) {
+    var indice = array.indexOf(buscado); 
+    array.splice(indice, 1); 
+}
+
+
+
+
+
 
 
 

@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Koulen&family=Lato&family=Nunito&family=Playfair+Display:ital@1&family=Prata&family=Raleway:ital,wght@1,100&family=Roboto&family=Roboto+Condensed&family=Teko&display=swap');
+
+body {
+    background: #882ad5 0%;
+    background-repeat: no-repeat;
+    color: #ffff;
+    text-shadow: 2px 3px 9px rgba(0, 0, 0, 0.6);
+
+}
+
+.imagen {
+    width: 100px;
+    height: 100px;
+
+}
+
+label {
+    color: black;
+}
+
+
+
+
+
+.btn {
+
+    font-family: Roboto, sans-serif;
+    font-weight: 0;
+    font-size: 14px;
+    color: #fff;
+    background-color: #000000;
+    padding: 10px 30px;
+    border: solid #000000 2px;
+    box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+    border-radius: 50px;
+    transition: 1000ms;
+    transform: translateY(0);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 250px;
+
+}
+
+.btn:hover {
+
+    transition: 1000ms;
+    padding: 10px 50px;
+    transform: translateY(-0px);
+    background-color: #3d3c3c;
+    color: #fffefe;
+    border: solid 2px #72089c;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+}
